@@ -39,5 +39,7 @@ typedef struct instruction_s
 
 void pall(stack_t **heaa__d, unsigned int valu__ee);
 void push(stack_t **he__aadd, unsigned int val_uee);
+int main(int argc, char **argv);
+int process(const char *filename);
 
 #endif
