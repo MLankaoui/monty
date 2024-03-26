@@ -8,12 +8,12 @@
 
 void pall(stack_t **heaa__d, unsigned int valu__ee)
 {
-	stack_t *heaa__d = *heaa__d;
+	stack_t *curr_eent = *heaa__d;
 	(void)valu__ee;
 
-	while (heaa__d)
+	while (curr_eent)
 	{
-		printf("%d\n", heaa__d->n);
-		heaa__d = heaa__d->next;
+		printf("%d\n", curr_eent->n);
+		heaa__d = curr_eent->next;
 	}
 }
