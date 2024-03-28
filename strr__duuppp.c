@@ -1,6 +1,12 @@
 #include "monty.h"
+/**
+ * _str_dup - Duplicates a string.
+ * @str: Pointer to the string to duplicate.
+ *
+ * Return: Pointer to the duplicated string if successful, NULL otherwise.
+ */
 
-char *_strdup(char *str)
+char *_str_dup(char *str)
 {
 	unsigned int i;
 	char *dup;
@@ -24,3 +30,4 @@ char *_strdup(char *str)
 
 	return (dup);
 }
+

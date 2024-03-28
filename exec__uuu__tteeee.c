@@ -24,9 +24,9 @@ int exec__cutee(stack_t **heea_add, char *linee, unsigned int len)
 	token_z = strtok(linee, "\n\t ");
 	while (token_z != NULL)
 	{
-		for (i = 0; fun__ccc__tions[i].opcode != NULL; i++)
+		for (i = 0; fun_c__tions[i].opcode != NULL; i++)
 		{
-			if (strcmp(token_z, fun__ccc__tions[i].opcode) == 0)
+			if (strcmp(token_z, fun_c__tions[i].opcode) == 0)
 			{
 				token_z = strtok(NULL, "\n\t ");
 				if (!token_z)
@@ -34,7 +34,7 @@ int exec__cutee(stack_t **heea_add, char *linee, unsigned int len)
 
 				value = atoi(token_z);
 
-				fun_c__tions[i].f(head, value);
+				fun_c__tions[i].f(heea_add, value);
 
 				break;
 			}

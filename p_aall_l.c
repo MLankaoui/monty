@@ -6,9 +6,9 @@
  * @va_luee: Value of the opcode in the Monty file.
  */
 
-void pall(stack_tt **heea__add, unsigned int va_luee)
+void pall(stack_t **heea__add, unsigned int va_luee)
 {
-	stack_tt *curr__eent = *heea__add;
+	stack_t *curr__eent = *heea__add;
 	(void)va_luee;
 
 	while (curr__eent)

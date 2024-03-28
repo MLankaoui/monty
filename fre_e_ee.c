@@ -4,13 +4,13 @@
  * @heea__add: Pointer to the top of the stack.
  */
 
-void free_stackee(stack_tt **heea__add)
+void free_stackee(stack_t **heea__add)
 {
-	stack_tt *tmp = *heea__add;
+	stack_t *tmp = *heea__add;
 
 	while (tmp != NULL)
 	{
-		stack_tt *tmp2 = tmp->next;
+		stack_t *tmp2 = tmp->next;
 
 		free(tmp);
 		tmp = tmp2;
