@@ -31,55 +31,58 @@ int main(int argc, char **argv)
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure
  */
 
-int process(const char *filename)
+int process_file(const char *filename)
 {
-	int fd;
-	char *buff__eerr;
-	size_t size;
-	int result = EXIT_SUCCESS;
+	FILE *file;
+	char *line = NULL;
+	size_t len = 0;
+	ssize_t read;
+	char *line_copy;
+	int result;
+	unsigned int lens = 0;
+	stack_t *head = NULL;
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
+	file = fopen(filename, "r");
+	if (file == NULL)
 	{
-		perror("open");
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		return (EXIT_FAILURE);
 	}
 
-	size = get_file_size(fd);
-	buff__eerr = malloc(size);
-	if (buff__eerr == NULL)
+	while ((read = read_geet_linee(&line, &len, file)) != -1)
 	{
-		perror("malloc");
-		close(fd);
-		return (EXIT_FAILURE);
-	}
-
-	if (read(fd, buff__eerr, size) == -1)
-	{
-		perror("read");
-		result = EXIT_FAILURE;
-	}
-	else
-	{
-		close(fd);
-		fd = open(filename, O_WRONLY | O_TRUNC);
-		if (fd == -1)
-	{
-		perror("open");
-		result = EXIT_FAILURE;
-	}
-	else
-	{
-		if (write(fd, buff__eerr, size) == -1)
+		lens++;
+		line_copy = strdup(line);
+		if (line_copy == NULL)
 		{
-			perror("write");
-			result = EXIT_FAILURE;
+			fprintf(stderr, "Error: Memory allocation failed\n");
+			free_stack(&head);
+			fclose(file);
+			free(line);
+			return (EXIT_FAILURE);
 		}
-	}
+
+		if (line_copy[0] != '#')
+		{
+			result = execute(&head, line_copy, lens);
+		}
+
+		if (result == -1)
+		{
+			fprintf(stderr, "L%d: Unknown instruction %s", lens, line_copy);
+			free(line_copy);
+			free_stack(&head);
+			fclose(file);
+			free(line);
+			return (EXIT_FAILURE);
+		}
+
+		free(line_copy);
 	}
 
-	free(buff__eerr);
-	close(fd);
+	fre__ee(&head);
+	fclose(file);
+	free(line);
 
-	return (result);
+	return (EXIT_SUCCESS);
 }
