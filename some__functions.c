@@ -1,12 +1,17 @@
 #include "monty.h"
-
+/**
+ * is_buffer_valid - Checks if a buffer contains a valid command
+ * @buffer: Buffer to be checked
+ *
+ * Return: 0 if the buffer contains a valid command, -1 otherwise
+ */
 int is_buffer_valid(char *buffer)
 {
-    int i = 0;
+	int i = 0;
 
 	if (buffer[0] == '\n' || buffer[0] == '#')
 		return (-1);
-	while (buffer[i])/**/
+	while (buffer[i])
 	{
 		if (buffer[i] != 32 && buffer[i] != 9 && buffer[i] != '\n')
 		{
@@ -28,42 +33,41 @@ int is_buffer_valid(char *buffer)
  */
 void check_cmd(char *buffer, unsigned int line_number, stack_t **head)
 {
-    char *token;
-    
-    /* Tokenize the buffer to separate commands */
-    token = strtok(buffer, " \n\t");
-    while (token != NULL)
-    {
-        /* Here, you would check each token (command) and execute accordingly */
-        if (strcmp(token, "push") == 0)
-        {
-            /* If the command is "push", you would extract the value and push it onto the stack */
-            token = strtok(NULL, " \n\t");
-            if (token == NULL)
-            {
-                /* Handle error: No value provided for push */
-                fprintf(stderr, "L%u: usage: push integer\n", line_number);
-                exit(EXIT_FAILURE);
-            }
-            /* Convert the token to an integer and push onto the stack */
-            push(head, atoi(token));
-        }
-        else if (strcmp(token, "pall") == 0)
-        {
-            /* If the command is "pall", you would print all elements in the stack */
-            pall(head, line_number);
-        }
-        /* Add more conditions to handle other commands */
-        else
-        {
-            /* Handle error: Unknown command */
-            fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
-            exit(EXIT_FAILURE);
-        }
-        
-        /* Move to the next token */
-        token = strtok(NULL, " \n\t");
-    }
+	char *token;
+
+	/* Tokenize the buffer to separate commands */
+	token = strtok(buffer, " \n\t");
+	while (token != NULL)
+	{
+		/* Here, you would check each token (command) and execute accordingly */
+		if (strcmp(token, "push") == 0)
+		{
+			token = strtok(NULL, " \n\t");
+			if (token == NULL)
+			{
+				/* Handle error: No value provided for push */
+				fprintf(stderr, "L%u: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+			/* Convert the token to an integer and push onto the stack */
+			push(head, atoi(token));
+		}
+		else if (strcmp(token, "pall") == 0)
+		{
+			/* If the command is "pall", you would print all elements in the stack */
+			pall(head, line_number);
+		}
+		/* Add more conditions to handle other commands */
+		else
+		{
+			/* Handle error: Unknown command */
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, token);
+			exit(EXIT_FAILURE);
+		}
+
+		/* Move to the next token */
+		token = strtok(NULL, " \n\t");
+	}
 }
 
 
