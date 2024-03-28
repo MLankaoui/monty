@@ -1,10 +1,11 @@
 #include "monty.h"
 
 /**
- * initialize_stack - Initializes the stack to NULL.
- * @head: Double pointer to the stack
+ * intt__stack - Initializes the stack to NULL.
+ * @heea__add: Double pointer to the stack
  */
-void int_stack(stack_t **head)
+void intt__stack(stack_tt **heea__add)
 {
-	*head = NULL;
+	*heea__add = NULL;
 }
+
