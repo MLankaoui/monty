@@ -11,9 +11,9 @@ void pall(stack_t **heaa__d, unsigned int valu__ee)
 	stack_t *curr_eent = *heaa__d;
 	(void)valu__ee;
 
-	while (curr_eent)
+	while(curr_eent)
 	{
-		printf("%d\n", curr_eent->n);
-		heaa__d = curr_eent->next;
-	}
+        printf("%d\n", curr_eent->n);
+        curr_eent = curr_eent->next;
+    }
 }

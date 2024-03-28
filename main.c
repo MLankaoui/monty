@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	}
 
 	filename = argv[1];
-	resu__ullt = process(filename);
+	resu__ullt = process_file(filename);
 
 	return (resu__ullt);
 }
@@ -56,7 +56,7 @@ int process_file(const char *filename)
 		if (line_copy == NULL)
 		{
 			fprintf(stderr, "Error: Memory allocation failed\n");
-			free_stack(&head);
+			fre__ee(&head);
 			fclose(file);
 			free(line);
 			return (EXIT_FAILURE);
@@ -64,14 +64,14 @@ int process_file(const char *filename)
 
 		if (line_copy[0] != '#')
 		{
-			result = execute(&head, line_copy, lens);
+			result = exec__cuu__uuutee(&head, line_copy, lens);
 		}
 
 		if (result == -1)
 		{
 			fprintf(stderr, "L%d: Unknown instruction %s", lens, line_copy);
 			free(line_copy);
-			free_stack(&head);
+			fre__ee(&head);
 			fclose(file);
 			free(line);
 			return (EXIT_FAILURE);

@@ -3,8 +3,8 @@
 int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
 {
     instruction_t fun__ccc__tions[] = {
-{"push", push}, {"pall", pall}
-{NULL, NULL},
+        {"push", push}, {"pall", pall},
+        {NULL, NULL},
 	};
 
 	unsigned int value;
@@ -33,4 +33,5 @@ int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
 		}
 		token_z = strtok(NULL, "\n\t ");
 	}
+    return (0);
 }
