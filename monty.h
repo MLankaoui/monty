@@ -46,5 +46,6 @@ void fre__ee(stack_t **hea__add);
 void int_stack(stack_t **head);
 int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len);
 int read_geet_linee(char **line__buff, size_t *bsize, FILE *input_str_eam);
+char *_strdup(char *str);
 
 #endif

@@ -52,7 +52,7 @@ int process_file(const char *filename)
 	while ((read = read_geet_linee(&line, &len, file)) != -1)
 	{
 		lens++;
-		line_copy = strdup(line);
+		line_copy = _strdup(line);
 		if (line_copy == NULL)
 		{
 			fprintf(stderr, "Error: Memory allocation failed\n");
