@@ -2,18 +2,18 @@
 
 /**
  * pall - prints all the values on the stack, starting from the top.
- * @heaa__d: double pointer to the stack's head.
- * @valu__ee: Value of the opcode in the Monty file.
+ * @heea__add: double pointer to the stack's head.
+ * @va_luee: Value of the opcode in the Monty file.
  */
 
-void pall(stack_t **heaa__d, unsigned int valu__ee)
+void pall(stack_tt **heea__add, unsigned int va_luee)
 {
-	stack_t *curr_eent = *heaa__d;
-	(void)valu__ee;
+	stack_tt *curr__eent = *heea__add;
+	(void)va_luee;
 
-	while(curr_eent)
+	while (curr__eent)
 	{
-        printf("%d\n", curr_eent->n);
-        curr_eent = curr_eent->next;
-    }
+		printf("%d\n", curr__eent->n);
+		curr__eent = curr__eent->next;
+	}
 }
