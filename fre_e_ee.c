@@ -4,7 +4,7 @@
  * @heea__add: Pointer to the top of the stack.
  */
 
-void free_stackee(stack_t **heea__add)
+void fre__ee(stack_t **heea__add)
 {
 	stack_t *tmp = *heea__add;
 

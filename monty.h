@@ -41,7 +41,7 @@ typedef struct instruction_s
 void pall(stack_t **heea__add, unsigned int va_luee);
 void push(stack_t **he__aadd, unsigned int val_uee);
 int main(int argc, char **argv);
-void free_stackee(stack_t **heea__add);
+void fre__ee(stack_t **heea__add);
 void intt__stack(stack_t **heea__add);
 int exec__cutee(stack_t **heea_add, char *linee, unsigned int len);
 int read_geet_linee(char **buf_fer, int *len, int file, unsigned int *linee);
