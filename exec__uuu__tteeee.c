@@ -16,9 +16,9 @@ int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
 	token_z = strtok(line, "\n\t ");
 	while (token_z != NULL)
 	{
-		for (i = 0; funs[i].opcode != NULL; i++)
+		for (i = 0; fun__ccc__tions[i].opcode != NULL; i++)
 		{
-			if (strcmp(token_z, funs[i].opcode) == 0)
+			if (strcmp(token_z, fun__ccc__tions[i].opcode) == 0)
 			{
 				token_z = strtok(NULL, "\n\t ");
 				if (!token_z)
@@ -26,7 +26,7 @@ int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
 
 				value = atoi(token_z);
 
-				funs[i].f(head, value);
+				fun__ccc__tions[i].f(head, value);
 
 				break;
 			}
