@@ -51,5 +51,6 @@ int _putchar(char c, int fd);
 void check_cmd(char *buffer, unsigned int line_number, stack_t **head);
 int _puts(char *str, int fd);
 void p__int(stack_t **hea__dd, unsigned int value);
+void nnooo__pp(stack_t **st___ackk_, unsigned int line_number);
 
 #endif
