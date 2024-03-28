@@ -2,13 +2,13 @@
 
 /**
  * main - Entry point
- * @argc: Number of arguments
- * @argv: Argument vector
+ * @ac: Number of arguments
+ * @av: Argument vector
  *
  * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure
  */
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
 	int fd = 0, read_bytes = 0, len = 0, valid = 0;
 	unsigned int line = 0;
@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 
 	if (ac != 2)
 	{
-		_puts("USAGE: monty file\n", 2);
+		puts("USAGE: monty file\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	fd = open(av[1], O_RDONLY);
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		_putchar('\n', 2);
 		exit(EXIT_FAILURE);
 	}
-	while ((read_bytes = _getline(&buffer, &len, fd, &line)) != -1)
+	while ((read_bytes = read_geet_linee(&buffer, &len, fd, &line)) != -1)
 	{
 		valid = is_buffer_valid(buffer);
 		if (valid == -1)
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	}
 	if (buffer)
 		free(buffer);
-	free_stack(head);
+	fre__ee(&head);
 	close(fd);
 	return (0);
 }
