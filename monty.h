@@ -41,10 +41,10 @@ typedef struct instruction_s
 void pall(stack_t **heaa__d, unsigned int valu__ee);
 void push(stack_t **he__aadd, unsigned int val_uee);
 int main(int argc, char **argv);
-int process(const char *filename);
+int process_file(const char *filename);
 void fre__ee(stack_t **hea__add);
 void int_stack(stack_t **head);
 int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len);
-int read_geet_linee(char **line__buff, size_t *bsize, FILE *input_str_eam)
+int read_geet_linee(char **line__buff, size_t *bsize, FILE *input_str_eam);
 
 #endif
