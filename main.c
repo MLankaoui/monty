@@ -17,7 +17,7 @@ int main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		puts("USAGE: monty file\n", 2);
+		_puts("USAGE: monty file\n", 2);
 		exit(EXIT_FAILURE);
 	}
 	fd = open(av[1], O_RDONLY);

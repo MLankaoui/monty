@@ -8,45 +8,46 @@
 *
 * Return: The number of characters read, or -1 on failure.
 */
-int read_geet_linee(char **line__buff, size_t *bsize, FILE *input_str_eam)
+int read_geet_linee(char **buffer, int *len, int file, unsigned int *line)
 {
-	int br = 0, chr;
+	ssize_t bytes_read = 0, i = 0, j = 0;
+	char local_buffer[1024];
 
-	size_t total_br = 0;
-	char *newLine__buff;
-
-	if (line__buff == NULL || bsize == NULL || input_str_eam == NULL)
-		return (-1);
-	if (*line__buff == NULL || *bsize == 0)
+	while ((bytes_read = read(file, local_buffer, sizeof(local_buffer) - 1)) > 0)
 	{
-		*bsize = 128;
-		*line__buff = (char *)malloc(*bsize);
-		if (*line__buff == NULL)
-			return (-1);
-	}
-	while ((chr = fgetc(input_str_eam)) != EOF)
-	{
-		if (total_br >= *bsize - 1)
+		for (i = 0; i < bytes_read; i++)
 		{
-			*bsize *= 2;
-			newLine__buff = (char *)realloc(*line__buff, *bsize);
-			if (newLine__buff == NULL)
+			if (local_buffer[i] == '\n')
 			{
-				free(*line__buff);
-				return (-1);
+				if ((*buffer) != NULL)
+					free(*buffer);
+				*buffer = malloc(i + 2);
+				if (!(*buffer))
+				{
+					_puts("Error: malloc failed\n", 2);
+					return (1);
+				}
+				for (j = 0; j < i + 1; j++)
+					(*buffer)[j] = local_buffer[j];
+				(*buffer)[j] = '\0';
+				*len = (int)j, *line = *line + 1;
+				lseek(file, i - (bytes_read - 1), SEEK_CUR);
+				return (i);
 			}
-			*line__buff = newLine__buff;
 		}
-		(*line__buff)[total_br++] = (char)chr;
-		br++;
-		if (chr == '\n')
-			break;
+		if ((*buffer))
+			free(*buffer);
+		*buffer = malloc(bytes_read + 1);
+		if (!(*buffer))
+		{
+			_puts("Error: malloc failed\n", 2);
+			return (1);
+		}
+		for (j = 0; j < bytes_read; j++)
+			(*buffer)[j] = local_buffer[j];
+		(*buffer)[j] = '\0';
+		*len = (int)j, *line = *line + 1;
+		return (j);
 	}
-	if (total_br == 0 && br == 0)
-	{
-		free(*line__buff);
-		return (-1);
-	}
-	(*line__buff)[total_br] = '\0';
-	return (total_br);
+	return ((bytes_read) == 0 ? -1 : 0);
 }
