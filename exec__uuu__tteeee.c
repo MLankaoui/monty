@@ -1,10 +1,18 @@
 #include "monty.h"
+/**
+ * exec__cutee - Execute commands in the Monty bytecode
+ * @heea_add: Pointer to the head of the stack
+ * @linee: Line containing the command to be executed
+ * @len: Length of the line
+ *
+ * Return: Always 0
+ */
 
-int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
+int exec__cutee(stack_t **heea_add, char *linee, unsigned int len)
 {
-    instruction_t fun__ccc__tions[] = {
-        {"push", push}, {"pall", pall},
-        {NULL, NULL},
+	instruction_t fun_c__tions[] = {
+	{"push", push}, {"pall", pall},
+	{NULL, NULL},
 	};
 
 	unsigned int value;
@@ -13,7 +21,7 @@ int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
 
 	(void)len;
 
-	token_z = strtok(line, "\n\t ");
+	token_z = strtok(linee, "\n\t ");
 	while (token_z != NULL)
 	{
 		for (i = 0; fun__ccc__tions[i].opcode != NULL; i++)
@@ -26,12 +34,12 @@ int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len)
 
 				value = atoi(token_z);
 
-				fun__ccc__tions[i].f(head, value);
+				fun_c__tions[i].f(head, value);
 
 				break;
 			}
 		}
 		token_z = strtok(NULL, "\n\t ");
 	}
-    return (0);
+	return (0);
 }

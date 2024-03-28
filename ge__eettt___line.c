@@ -1,13 +1,14 @@
 #include "monty.h"
 
 /**
-* read_geet_linee - Custom implementation of getline function.
-* @line__buff: Pointer to the buffer storing the input line.
-* @bsize: Pointer to the size of the buffer.
-* @input_str_eam: File stream to read from.
-*
-* Return: The number of characters read, or -1 on failure.
-*/
+ * read_geet_linee - Reads a line from a file descriptor
+ * @buffer: Pointer to a buffer where the line will be stored
+ * @len: Pointer to an integer to store the length of the line
+ * @file: File descriptor
+ * @line: Pointer to an unsigned int to store the line number
+ *
+ * Return: The number of characters read, or -1 on failure.
+ */
 int read_geet_linee(char **buffer, int *len, int file, unsigned int *line)
 {
 	ssize_t bytes_read = 0, i = 0, j = 0;
