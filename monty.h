@@ -50,5 +50,6 @@ int is_buffer_valid(char *buffer);
 int _putchar(char c, int fd);
 void check_cmd(char *buffer, unsigned int line_number, stack_t **head);
 int _puts(char *str, int fd);
+void p__int(stack_t **hea__dd, unsigned int value);
 
 #endif
