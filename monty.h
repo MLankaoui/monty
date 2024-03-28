@@ -38,13 +38,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void pall(stack_t **heaa__d, unsigned int valu__ee);
+void pall(stack_t **heea__add, unsigned int va_luee);
 void push(stack_t **he__aadd, unsigned int val_uee);
 int main(int argc, char **argv);
-void fre__ee(stack_t **hea__add);
-void int_stack(stack_t **head);
-int exec__cuu__uuutee(stack_t **head, char *line, unsigned int len);
-int read_geet_linee(char **buffer, int *len, int file, unsigned int *line);
+void free_stackee(stack_t **heea__add);
+void intt__stack(stack_t **heea__add);
+int exec__cutee(stack_t **heea_add, char *linee, unsigned int len);
+int read_geet_linee(char **buf_fer, int *len, int file, unsigned int *linee);
 char *_strdup(char *str);
 int is_buffer_valid(char *buffer);
 int _putchar(char c, int fd);
